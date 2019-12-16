@@ -42,8 +42,9 @@ for($i=0; $i <= 5; $i++){
 
 
 // Looking for a specific card = $draw
-$draw = array('face' => 'Ace', 'suit' => 'Clubs');
-
+// card 1: $draw = array('face' => 'Ace', 'suit' => 'Clubs');
+// card 2: 
+$draw = array('face' => 'Ace', 'suit' => '');
 
 // Calculating the odds of drawing specific card
 function calculate_match($draw, $deck){
