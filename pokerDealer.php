@@ -1,4 +1,48 @@
 <?php 
+// generate and shuffle a deck
+
+$faces = array (
+  "Two", "Three", "Four", "Five", "Six", "Seven", "Eight",
+  "Nine", "Ten", "Jack", "Queen", "King", "Ace"
+);
+
+$suits = array (
+  "Spades", "Hearts", "Clubs", "Diamonds"
+);
+
+$deck = [];
+
+foreach($faces as $face){
+  foreach($suits as $suit){
+    // $deck as an empty array
+    $deck[] = ["face" => $face , "suit" =>$suit];
+  }
+}
+
+$card = array_shift($deck);
+
+
+//print_r($card["face"] ." of ".$card["suit"]);
+
+// create a single hand of five card
+
+$hand = array(1 => array());
+
+shuffle($deck);
+
+for($i =0; $i <= 4; $i++){
+  $hand[1][] =  array_shift($deck);
+}
+
+//print_r($hand[1]);
+
+// Using checkboxes to indicate cards you are replacing
+foreach ($hand[1] as $index =>$card) {
+  echo "<input type='checkbox' name='card[" . $index . "]'> 
+" . $card['face'] . ' of ' . $card['suit'] . "<br />";
+}
+
+// evaluate the input array $_POST['card'] to see which cards have been checked for
 
 
 ?>
